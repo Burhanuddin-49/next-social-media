@@ -272,6 +272,7 @@ export const addPost = async (formData: FormData, img: string) => {
     return;
   }
   const { userId } = auth();
+  console.log(userId, "mai yaha hu");
 
   if (!userId) throw new Error("User is not authenticated!");
 
@@ -338,7 +339,7 @@ export const deletePost = async (postId: number) => {
         userId,
       },
     });
-    revalidatePath("/")
+    revalidatePath("/");
   } catch (err) {
     console.log(err);
   }
